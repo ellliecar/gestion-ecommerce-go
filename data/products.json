@@ -1,1 +1,42 @@
-
+{
+  "ART-001": {
+    "id": "ART-001",
+    "name": "Sombrero de Paja Toquilla",
+    "category": "Artesanías",
+    "price": 45.00,
+    "stock": 20,
+    "description": "Hecho a mano en Cuenca - Patrimonio Cultural Inmaterial"
+  },
+  "ART-002": {
+    "id": "ART-002", 
+    "name": "Tagua Tallada",
+    "category": "Artesanías",
+    "price": 15.99,
+    "stock": 30,
+    "description": "Marfil vegetal de la costa ecuatoriana"
+  },
+  "CAF-001": {
+    "id": "CAF-001",
+    "name": "Café de Altura Loja", 
+    "category": "Café",
+    "price": 12.50,
+    "stock": 50,
+    "description": "100% orgánico, tostado artesanal"
+  },
+  "CAF-002": {
+    "id": "CAF-002",
+    "name": "Café Galápagos",
+    "category": "Café", 
+    "price": 18.00,
+    "stock": 25,
+    "description": "Cultivado en suelo volcánico único"
+  },
+  "CHO-001": {
+    "id": "CHO-001",
+    "name": "Chocolate 70% Cacao",
+    "category": "Chocolate",
+    "price": 8.99,
+    "stock": 35,
+    "description": "Elaborado con cacao nacional Arriba"
+  }
+}
