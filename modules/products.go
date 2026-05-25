@@ -1,25 +1,23 @@
 package modules
 
-import (
-	"gestion-ecommerce-go/utils"
-)
+import "gestion-ecommerce-go/utils"
 
 // Product: Estructura de dato para productos ecuatorianos
 type Product struct {
 	ID          string  `json:"id"`
 	Name        string  `json:"name"`
-	Category    string  `json:"category"` // Array fijo: [3]string{"Artesanías", "Café", "Chocolate"}
+	Category    string  `json:"category"`
 	Price       float64 `json:"price"`
 	Stock       int     `json:"stock"`
 	Description string  `json:"description"`
 }
 
-// ProductCatalog: Map para búsqueda O(1) por ID (concepto Maps de Unidad 1)
+// ProductCatalog: MAP para búsqueda O(1) por ID ← Concepto Maps Unidad 1
 type ProductCatalog map[string]Product
 
-// === FUNCIONES PURAS ===
+// === FUNCIONES PURAS - Sin efectos secundarios ===
 
-// GetAllProducts: Retorna copia del catálogo (inmutabilidad)
+// GetAllProducts: Retorna copia del catálogo (INMUTABILIDAD)
 func GetAllProducts(catalog ProductCatalog) []Product {
 	products := make([]Product, 0, len(catalog))
 	for _, p := range catalog {
@@ -28,7 +26,7 @@ func GetAllProducts(catalog ProductCatalog) []Product {
 	return products
 }
 
-// FindByCategory: Filtra productos por categoría usando FilterBy (Higher-Order Function)
+// FindByCategory: Filtra por categoría usando FilterBy (HIGHER-ORDER FUNCTION)
 func FindByCategory(catalog ProductCatalog, category string) []Product {
 	allProducts := GetAllProducts(catalog)
 	return utils.FilterBy(allProducts, func(p Product) bool {
@@ -36,7 +34,7 @@ func FindByCategory(catalog ProductCatalog, category string) []Product {
 	})
 }
 
-// CalculateInventoryValue: Reduce funcional para calcular valor total del inventario
+// CalculateInventoryValue: REDUCE funcional para valor total del inventario
 func CalculateInventoryValue(catalog ProductCatalog) float64 {
 	products := GetAllProducts(catalog)
 	return utils.Reduce(products, 0.0, func(acc float64, p Product) float64 {
@@ -44,12 +42,11 @@ func CalculateInventoryValue(catalog ProductCatalog) float64 {
 	})
 }
 
-// AddProduct: Retorna nuevo catálogo sin modificar el original (inmutabilidad)
+// AddProduct: Retorna NUEVO catálogo sin modificar original (INMUTABILIDAD)
 func AddProduct(catalog ProductCatalog, newProduct Product) ProductCatalog {
-	// Crear nuevo map (no modificar el original)
 	newCatalog := make(ProductCatalog, len(catalog)+1)
 	for k, v := range catalog {
-		newCatalog[k] = v // Copia por valor
+		newCatalog[k] = v
 	}
 	newCatalog[newProduct.ID] = newProduct
 	return newCatalog
@@ -60,7 +57,6 @@ func UpdateStock(catalog ProductCatalog, productID string, newStock int) Product
 	newCatalog := make(ProductCatalog, len(catalog))
 	for k, v := range catalog {
 		if k == productID {
-			// Crear nueva instancia con stock actualizado (inmutabilidad)
 			updated := v
 			updated.Stock = newStock
 			newCatalog[k] = updated
