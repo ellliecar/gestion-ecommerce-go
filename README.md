@@ -1,31 +1,38 @@
 # Sistema de Gestión de E-commerce - Go + Programación Funcional
 
-Proyecto desarrollado aplicando **Arrays, Slices y Maps de Go** (Unidad 1) combinados con principios de **Programación Funcional** (funciones puras, inmutabilidad, higher-order functions).
+> Proyecto desarrollado para **Aprendizaje Autónomo 1 - Unidad 1**  
+> Aplicando **Arrays, Slices y Maps de Go** + **Programación Funcional**
+
+## 👤 Autor
+**Elizabeth Cardona**  
+Ingeniería en Ciberseguridad | Universidad Internacional del Ecuador (UIDE)  
+Fecha: Mayo 2026
+
+---
 
 ## 🎯 Objetivo General
 Automatizar la gestión de una tienda online ecuatoriana permitiendo:
-- CRUD de productos (artesanales, café, chocolates)
+- CRUD de productos artesanales, café y chocolate
 - Gestión de carrito con cálculo funcional de totales
 - Reportes de ventas usando reduce funcional
 
-## 📚 Conexión con Unidad 1: Estructuras de Datos en Go
+---
 
-| Concepto Unidad 1 | Aplicación en el Proyecto | Beneficio |
-|------------------|---------------------------|-----------|
-| **Arrays** `[n]T` | Definición de categorías fijas: `[3]string{"Artesanías", "Café", "Chocolate"}` | Tipo seguro, tamaño conocido en compile-time |
-| **Slices** `[]T` | Lista dinámica de productos y carrito de compras | Flexibilidad para agregar/eliminar sin copiar arrays |
-| **Maps** `map[K]V` | Catálogo: `map[string]Product` para búsqueda O(1) por ID | Búsqueda eficiente sin recorrer listas |
+## 📚 Conexión Explícita con Unidad 1: Arrays, Slices, Maps
+
+| Concepto Unidad 1 | Sintaxis en Go | Aplicación en Proyecto | Beneficio Empresarial |
+|------------------|----------------|----------------------|---------------------|
+| **Array** `[n]T` | `[3]string{"A","B","C"}` | Categorías fijas de productos | Tipo seguro, tamaño conocido en compile-time |
+| **Slice** `[]T` | `[]CartItem` | Carrito de compras dinámico | Flexibilidad para agregar/eliminar sin copiar arrays |
+| **Map** `map[K]V` | `map[string]Product` | Catálogo para búsqueda por ID | Búsqueda O(1), escalable para miles de productos |
+
+---
 
 ## 🔧 Tecnologías
-- Go 1.21+
-- Enfoque funcional: funciones puras, inmutabilidad, composición
-- Sin frameworks externos (solo stdlib: `fmt`, `json`, `sort`)
+- **Go 1.21+**
+- **Enfoque funcional**: funciones puras, inmutabilidad, higher-order functions
+- **Sin dependencias externas**: solo stdlib (`fmt`, `encoding/json`, `os`)
 
-## 📦 Módulos Funcionales
-1. `products.go`: CRUD con slices y maps
-2. `cart.go`: Cálculo de totales con `reduce` funcional
-3. `reports.go`: Agregaciones con funciones de orden superior
+---
 
-## 🚀 Ejecutar
-```bash
-go run main.go
+## 📦 Estructura del Proyecto
