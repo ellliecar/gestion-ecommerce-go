@@ -1,4 +1,4 @@
-package main
+ppackage main
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ import (
 func main() {
 	svc := services.NewOrderService()
 
-	// Productos de ejemplo
+	// Productos iniciales
 	p1, _ := models.NewProduct("P001", "Laptop Pro", 1200.0, 50)
 	p2, _ := models.NewProduct("P002", "Mouse Ergo", 45.0, 200)
 	svc.AddProduct(p1)
@@ -21,7 +21,7 @@ func main() {
 
 	server := api.NewServer(svc)
 
-	fmt.Println("🚀 Servidor corriendo en http://localhost:8080")
+	fmt.Println("🚀 Servidor E-commerce corriendo en http://localhost:8080")
 
 	http.HandleFunc("/health", server.HealthCheck)
 	http.HandleFunc("/api/products", server.ListProducts)
