@@ -1,3 +1,3 @@
-module gestion-ecommerce-go
+module ecommerce-go-system
 
-go 1.21
+go 1.22
